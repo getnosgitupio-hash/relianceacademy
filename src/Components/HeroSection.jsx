@@ -1,8 +1,8 @@
 import React from "react";
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo.webp";
 import heroCurve from "../assets/hero-banner.png";
 
-const HeroSection = () => {
+const HeroSection = ({ openPopup }) => {
   return (
     <section className="w-full sm:min-h-screen bg-black text-white overflow-hidden">
 
@@ -50,7 +50,7 @@ const HeroSection = () => {
 
         {/* BUTTONS */}
         <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-auto sm:w-auto">
-          <button className="w-full sm:w-auto px-5 sm:px-6 py-3 rounded-full text-sm sm:text-xl font-semibold bg-gradient-to-r from-indigo-500 to-purple-600 hover:opacity-90 transition">
+          <button onClick={openPopup} className="w-full sm:w-auto px-5 sm:px-6 py-3 rounded-full text-sm sm:text-xl font-semibold bg-gradient-to-r from-indigo-500 to-purple-600 hover:opacity-90 transition">
             Book Your Free Career Orientation
           </button>
 

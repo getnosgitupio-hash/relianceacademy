@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "homepage": "https://relianceacademythane.in/",
   "dependencies": {
     "framer-motion": "^12.27.1",
     "react": "^19.1.1",

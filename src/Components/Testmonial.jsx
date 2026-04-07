@@ -1,91 +1,101 @@
-import quotes from "../assets/Group.png";
+import quotes from "../assets/quotes.png";
 import starsImage from "../assets/Stars-2.png";
-import arjunImage from "../assets/Arjun.png";
-import priyaImage from "../assets/priya.png";
-import rahulImage from "../assets/Rahul.png";
+
+import img1 from "../assets/sc-1.png";
+import img2 from "../assets/sc-2.png";
+import img3 from "../assets/sc-3.png";
+import img4 from "../assets/sc-4.png";
+import img5 from "../assets/sc-5.png";
+import img6 from "../assets/sc-6.png";
+import img7 from "../assets/sc-7.png";
+import img8 from "../assets/sc-8.png";
+
 import ProgressDots from "../Components/ProgressLoad";
+import { motion } from "framer-motion";
 
 const testimonials = [
-  {
-    quote:
-      "The faculty here really understand the animation industry. The projects helped me build a strong portfolio.",
-    name: "Arjun Verma",
-    image: arjunImage,
-  },
-  {
-    quote:
-      "Great place to learn VFX and animation with practical exposure.",
-    name: "Priya Sharma",
-    image: priyaImage,
-  },
-  {
-    quote:
-      "If you want to build a career in animation or VFX, this is a great place to start.",
-    name: "Rahul Mehta",
-    image: rahulImage,
-  },
+  { name: "Student 1", image: img1 },
+  { name: "Student 2", image: img2 },
+  { name: "Student 3", image: img3 },
+  { name: "Student 4", image: img4 },
+  { name: "Student 5", image: img5 },
+  { name: "Student 6", image: img6 },
+  { name: "Student 7", image: img7 },
+  { name: "Student 8", image: img8 },
 ];
 
-
-
-export default function Testmonial() {
+export default function Testmonial({ scrollToForm }) {
   return (
-    <section className="bg-white px-6 py-10 lg:py-0 text-[#111111] md:px-10 lg:px-14 lg:py-2 mb-6">
+    <section className="bg-white px-6 py-10 md:px-10 lg:px-14 mb-6 overflow-hidden">
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto h-px w-full max-w-6xl bg-[#D8D8D8]" />
 
+        {/* Top Line */}
+        <div className="mx-auto h-px w-full max-w-6xl " />
+
+        {/* Heading */}
         <div className="mx-auto mt-14 max-w-5xl text-center">
-          <h2 className="text-2xl font-extrabold uppercase leading-tight tracking-[-0.03em] text-black md:text-4xl lg:text-[40px]">
-            WHAT STUDENTS SAY <span className="text-[#4D4D4D]">ABOUT THE ACADEMY</span>
+          <h2 className="text-2xl font-extrabold uppercase tracking-[-0.03em] text-black md:text-4xl lg:text-[40px]">
+            WHAT STUDENTS SAY{" "}
+            <span className="text-[#4D4D4D]">ABOUT THE ACADEMY</span>
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
-          {testimonials.map((item) => (
-            <article
-              key={item.name}
-              className="relative rounded-[18px] border border-[#DCDCDC] bg-white px-6 pb-5 pt-14 shadow-[0_8px_30px_rgba(17,17,17,0.03)]"
-            >
-              <div className="absolute right-8 top-0 -translate-y-1/2">
-                <img src={quotes} alt="Quote icon" className="h-16 w-16 object-contain" />
-              </div>
+        {/* Slider */}
+       <div className="relative mt-16 overflow-hidden">
+  <motion.div
+    className="flex pointer-events-auto"
+    animate={{ x: ["0%", "-50%"] }}
+    transition={{
+      repeat: Infinity,
+      duration: 25,
+      ease: "linear",
+    }}
+  >
+    {[...testimonials, ...testimonials].map((item, index) => (
+      <article
+        key={index}
+        className="w-1/1  md:w-1/2 lg:w-1/1 px-3 flex-shrink-0"
+      >
+        <div className="relative rounded-[18px] border border-[#DCDCDC] bg-white p-4 shadow-[0_8px_30px_rgba(17,17,17,0.03)] hover:shadow-lg transition">
 
-              <p className="min-h-[102px] text-base leading-9 text-[#8A8A8A] md:text-[18px]">
-                “{item.quote}”
-              </p>
+          {/* Quote icon */}
+          <div className="absolute right-3 top-3">
+            <img src={quotes} alt="quote" className="h-8 w-8" />
+          </div>
 
-              <div className="mt-2">
-                <img
-                  src={starsImage}
-                  alt="5 star rating"
-                  className="h-5 w-[120px] object-contain"
-                />
-              </div>
+          {/* Image */}
+          <div className="w-full h-[100px] lg:h-[250px] rounded-xl flex items-center justify-center overflow-hidden">
+            <img
+              src={item.image}
+              alt={item.name}
+              className="max-w-full max-h-full object-contain hover:scale-105 transition duration-300"
+            />
+          </div>
 
-              <div className="mt-5 h-px w-full bg-[#E4E4E4]" />
-
-              <div className="mt-4 flex items-center gap-4">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="h-12 w-12 rounded-full object-cover"
-                />
-                <span className="text-lg font-semibold text-[#7A7A7A] md:text-[22px]">
-                  {item.name}
-                </span>
-              </div>
-            </article>
-          ))}
         </div>
+      </article>
+    ))}
+  </motion.div>
+</div>
 
+        {/* CTA */}
         <div className="mt-14 flex flex-col items-center">
-          <button className="min-w-[300px] rounded-full bg-[#5338FF] px-12 py-4 text-lg font-semibold text-white shadow-[0_10px_30px_rgba(83,56,255,0.35)] transition hover:scale-[1.02] md:min-w-[340px] md:text-[18px]">
+          <button
+            onClick={scrollToForm}
+            className="min-w-[280px] rounded-full bg-[#5338FF] px-10 py-3 text-white font-semibold shadow-lg hover:scale-105 transition text-2xl"
+          >
             Join Our Next Batch
           </button>
-          <div className="mt-6">
+
+          <p className="mt-5 text-sm sm:text-lg text-red-600 text-center">
+            📍 Campus located in Thane, Mumbai.
+          </p>
+
+          <div className="mt-2">
             <ProgressDots />
           </div>
         </div>
+
       </div>
     </section>
   );

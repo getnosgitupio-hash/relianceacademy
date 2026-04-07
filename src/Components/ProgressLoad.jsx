@@ -62,7 +62,7 @@ export default function ProgressLoad() {
             <div
               key={i}
               className={`
-                h-4 w-2 sm:h-7 sm:w-4
+                h-4 w-2 sm:h-6 sm:w-3
                 rounded-sm
                 flex items-center justify-center
                 transition-colors duration-300

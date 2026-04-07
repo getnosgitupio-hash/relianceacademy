@@ -18,10 +18,20 @@ export default {
           '0%': { transform: 'translateX(-150%)' },
           '100%': { transform: 'translateX(350%)' },
         },
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        slideLTR: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
       },
       animation: {
         blink: 'blink 1s infinite',
-        shine: 'shine 2s linear infinite',
+        shine: 'shine 15s linear infinite',
+        'fade-in': 'fadeIn 0.8s ease-out forwards',
+        'slide-ltr': 'slideLTR 10s linear infinite',
       },
     },
   },

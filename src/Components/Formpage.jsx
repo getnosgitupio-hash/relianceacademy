@@ -25,7 +25,7 @@ const Formpage = ({ formRef, onOpenTerms }) => {
     const [submitError, setSubmitError] = useState("");
     const [hasConsented, setHasConsented] = useState(false);
     const thankYouPageUrl =
-        "https://relianceacademythane.in/animation-career/thank-you.html";
+        "https://relianceacademythane.in/thank-you.html";
 
     const handleChange = (event) => {
         const { name, value } = event.target;

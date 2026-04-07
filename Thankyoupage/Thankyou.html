@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* 🔵 NAVY + VIOLET POP BACKGROUND */
+    .pop-art-bg {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+
+      background: radial-gradient(circle at center, #7c3aed 0%, #1e1b4b 40%, #020617 80%);
+    }
+
+    /* Rays */
+    .pop-art-bg::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+
+      background: repeating-conic-gradient(
+        from 0deg,
+        rgba(139, 92, 246, 0.7) 0deg 8deg,
+        transparent 8deg 18deg
+      );
+
+      mix-blend-mode: overlay;
+      opacity: 0.8;
+      animation: rotateBurst 40s linear infinite;
+    }
+
+    /* Dots */
+    .pop-art-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1px);
+      background-size: 14px 14px;
+
+      opacity: 0.25;
+    }
+
+    @keyframes rotateBurst {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* ✨ Content Animations */
+    @keyframes fadeScale {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    .animate-main {
+      animation: fadeScale 1s ease-out forwards;
+    }
+
+    .animate-headline {
+      animation: fadeUp 1s ease-out forwards, breathe 6s ease-in-out infinite;
+      animation-delay: 0.2s;
+    }
+
+    .animate-text {
+      animation: fadeUp 1s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+  </style>
+</head>
+
+<body class="text-white flex items-center justify-center min-h-screen px-4">
+
+  <!-- 🔵 Background -->
+  <div class="pop-art-bg"></div>
+
+<!-- ✨ Content -->
+<div class="max-w-2xl text-center animate-main">
+
+  <!-- Logo -->
+  <div class="flex justify-center mb-6">
+    <img 
+      src="https://relianceacademythane.in/assets/logo-Cj3_lHnr.webp" 
+      alt="Reliance Animation Logo"
+      class="h-10 sm:h-14 md:h-16 object-contain"
+    />
+  </div>
+
+  <!-- Headline -->
+  <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold leading-tight animate-headline">
+    You’re One Step Closer to Your
+    <span class="bg-gradient-to-r from-violet-300 to-indigo-400 text-transparent bg-clip-text">
+      Creative Career
+    </span>
+  </h1>
+
+  <!-- Subtext -->
+  <p class="mt-6 text-gray-300 text-sm sm:text-lg leading-relaxed animate-text">
+    Your orientation request has been received successfully.
+    <br class="hidden sm:block" />
+    Our academic team will reach out to you shortly to help you explore the right path in Animation, VFX, or Game Design.
+  </p>
+
+</div>
+
+</body>
+</html>
